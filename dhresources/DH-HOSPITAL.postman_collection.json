@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "e0e85242-1359-4324-bc58-8eceafd12d3c",
+		"name": "DH-HOSPITAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HOSPITAL",
+			"item": [
+				{
+					"name": "HOSPITAL-LISTAR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/hospital",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hospital"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HOSPITAL-GUARDAR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"HOSPITAL OBRERO03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/hospital",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hospital"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HOSPITAL-BUSCAR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/hospital/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hospital",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HOSPITAL-ELIMINAR",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/hospital/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hospital",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HOSPITAL-EDITAR",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"HOSPITAL EDITADO 03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/hospital/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hospital",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PACIENTE",
+			"item": [
+				{
+					"name": "PACIENTE-LISTAR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/paciente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"paciente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PACIENTE-GUARDAR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"JUANA03\",\r\n    \"apellido\": \"VERA03\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE X, ZONA XXX NRO XXX\",\r\n    \"hospital\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/paciente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"paciente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PACIENTE-EDITAR",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"JUANA033\",\r\n    \"apellido\": \"VERA033\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE R, ZONA RRR NRO XXX\",\r\n    \"hospital\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/paciente/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"paciente",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DOCTOR",
+			"item": [
+				{
+					"name": "DOCTOR-GUARDAR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"PETER01\",\r\n    \"apellido\": \"PARKER01\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE Z, ZONA ZZZ NRO ZZZ\",\r\n    \"hospital\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/doctor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOCTOR-BUSCAR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/doctor/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"doctor",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOCTOR-LISTAR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/doctor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ESPECIALIDAD",
+			"item": [
+				{
+					"name": "ESPECIALIDAD-GUARDAR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"ESPECIALIDAD 01\",\r\n    \"descripcion\": \"Nueva especialidad descripcion 01\",\r\n    \"hospital\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/especialidad",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"especialidad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ESPECIALIDAD-LISTAR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/especialidad",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"especialidad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
