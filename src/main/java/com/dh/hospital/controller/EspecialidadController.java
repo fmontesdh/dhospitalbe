@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dh.hospital.entity.Doctor;
 import com.dh.hospital.entity.Especialidad;
-import com.dh.hospital.entity.NotaVisita;
 import com.dh.hospital.repository.EspecialidadRepository;
 
 @RestController
@@ -49,16 +47,7 @@ public class EspecialidadController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> destroy(@PathVariable long id) {
         especialidadRepository.deleteById(id);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
-
-//	@GetMapping("/{id}/doctores")
-//	public ResponseEntity<Collection<NotaVisita>> getNotasVisitaOfDoctor(@PathVariable long id){
-//		Doctor doctor = doctorRepository.findById(id).orElseThrow(null);
-//		if(doctor!=null) {
-//			return new ResponseEntity<>(doctor.getNotasVisita(), HttpStatus.OK);
-//		}
-//		return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-//	}
 
 }

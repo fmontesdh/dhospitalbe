@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e0e85242-1359-4324-bc58-8eceafd12d3c",
+		"_postman_id": "f9bd967f-855d-4044-b6e3-e889d7ae3956",
 		"name": "DH-HOSPITAL",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -34,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"HOSPITAL OBRERO03\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"HOSPITAL OBRERO022\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -61,7 +61,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/hospital/9",
+							"raw": "localhost:8080/api/hospital/3",
 							"host": [
 								"localhost"
 							],
@@ -69,7 +69,7 @@
 							"path": [
 								"api",
 								"hospital",
-								"9"
+								"3"
 							]
 						}
 					},
@@ -81,7 +81,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/hospital/9",
+							"raw": "localhost:8080/api/hospital/4",
 							"host": [
 								"localhost"
 							],
@@ -89,7 +89,7 @@
 							"path": [
 								"api",
 								"hospital",
-								"9"
+								"4"
 							]
 						}
 					},
@@ -102,7 +102,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"HOSPITAL EDITADO 03\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"HOSPITAL EDITADO 02\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -110,7 +110,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/hospital/9",
+							"raw": "localhost:8080/api/hospital/3",
 							"host": [
 								"localhost"
 							],
@@ -118,7 +118,7 @@
 							"path": [
 								"api",
 								"hospital",
-								"9"
+								"3"
 							]
 						}
 					},
@@ -183,7 +183,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"JUANA033\",\r\n    \"apellido\": \"VERA033\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE R, ZONA RRR NRO XXX\",\r\n    \"hospital\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"raw": "{\r\n    \"nombre\": \"JUANA0300\",\r\n    \"apellido\": \"VERA0300\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE R, ZONA RRR NRO XXX\",\r\n    \"hospital\": {\r\n        \"id\": 2\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -191,7 +191,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/paciente/9",
+							"raw": "localhost:8080/api/paciente/7",
 							"host": [
 								"localhost"
 							],
@@ -199,7 +199,7 @@
 							"path": [
 								"api",
 								"paciente",
-								"9"
+								"7"
 							]
 						}
 					},
@@ -217,7 +217,35 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"PETER01\",\r\n    \"apellido\": \"PARKER01\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE Z, ZONA ZZZ NRO ZZZ\",\r\n    \"hospital\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"raw": "{\r\n    \"nombre\": \"PETER02\",\r\n    \"apellido\": \"PARKER02\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE Z, ZONA ZZZ NRO ZZZ\",\r\n    \"hospital\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/doctor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOCTOR-GUARDAR-ESPECIALIDAD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"PETER07\",\r\n    \"apellido\": \"PARKER07\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE Z, ZONA ZZZ NRO ZZZ\",\r\n    \"hospital\": {\r\n        \"id\": 2\r\n    },\r\n    \"especialidades\": [\r\n        {\r\n            \"id\": 1\r\n        },\r\n        {\r\n            \"id\": 2\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -244,7 +272,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/doctor/6",
+							"raw": "localhost:8080/api/doctor/2",
 							"host": [
 								"localhost"
 							],
@@ -252,7 +280,7 @@
 							"path": [
 								"api",
 								"doctor",
-								"6"
+								"2"
 							]
 						}
 					},
@@ -272,6 +300,35 @@
 							"path": [
 								"api",
 								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOCTOR-EDITAR",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"PETER0200\",\r\n    \"apellido\": \"PARKER0200\",\r\n    \"fechaNacimiento\": \"1991-06-23\",\r\n    \"direccion\": \"CALLE Z, ZONA ZZZ NRO ZZZ\",\r\n    \"hospital\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/doctor/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"doctor",
+								"6"
 							]
 						}
 					},
