@@ -22,7 +22,7 @@ public class PacienteServiceImpl implements PacienteService {
     }
 
     @Override
-    public Optional<Paciente> findById(Integer id) {
+    public Optional<Paciente> findById(Long id) {
         return pacienteRepository.findById(id);
     }
 
@@ -33,7 +33,7 @@ public class PacienteServiceImpl implements PacienteService {
     }
 
     @Override
-    public Boolean update(Integer id, Paciente paciente) {
+    public Boolean update(Long id, Paciente paciente) {
         Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
         if (pacienteOptional.isPresent()) {
             Paciente pacienteEdit = pacienteOptional.get();
@@ -50,7 +50,7 @@ public class PacienteServiceImpl implements PacienteService {
     }
 
     @Override
-    public Boolean delete(Integer id) {
+    public Boolean delete(Long id) {
         Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
         if (pacienteOptional.isPresent()) {
             pacienteRepository.delete(pacienteOptional.get());

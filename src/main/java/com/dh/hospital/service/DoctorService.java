@@ -10,6 +10,8 @@ public interface DoctorService {
 
     public abstract Doctor save(Doctor doctor);
 
+    public abstract Doctor update(Long id, Doctor doctor);
+
     public void delete(Long id);
 
     public abstract Doctor findById(Long id);

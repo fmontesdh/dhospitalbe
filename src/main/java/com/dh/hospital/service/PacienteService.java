@@ -11,12 +11,12 @@ public interface PacienteService {
 
     public abstract Page<Paciente> findAll(Pageable pageable);
 
-    public abstract Optional<Paciente> findById(Integer id);
+    public abstract Optional<Paciente> findById(Long id);
 
     public abstract Paciente save(Paciente Paciente);
 
-    public abstract Boolean update(Integer id, Paciente Paciente);
+    public abstract Boolean update(Long id, Paciente Paciente);
 
-    public abstract Boolean delete(Integer id);
+    public abstract Boolean delete(Long id);
 
 }

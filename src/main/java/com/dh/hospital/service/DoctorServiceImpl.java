@@ -1,7 +1,9 @@
 package com.dh.hospital.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
+import com.dh.hospital.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,20 +23,32 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public Doctor save(Doctor doctor) {
-        // TODO Auto-generated method stub
+        return doctorRepository.save(doctor);
+    }
+
+    @Override
+    public Doctor update(Long id, Doctor doctor) {
+        Optional<Doctor> doctorOptional = doctorRepository.findById(id);
+        if (doctorOptional.isPresent()) {
+            Doctor doctorEdit = doctorOptional.get();
+            doctorEdit.setNombre(doctor.getNombre());
+            doctorEdit.setApellido(doctor.getApellido());
+            doctorEdit.setFechaNacimiento(doctor.getFechaNacimiento());
+            doctorEdit.setDireccion(doctor.getDireccion());
+            doctorEdit.setHospital(doctor.getHospital());
+            doctorEdit.setUpdatedBy(doctor.getUpdatedBy());
+            return doctorRepository.save(doctorEdit);
+        }
         return null;
     }
 
     @Override
     public void delete(Long id) {
-        // TODO Auto-generated method stub
-
+        doctorRepository.deleteById(id);
     }
 
     @Override
     public Doctor findById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return doctorRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Not found id " + id));
     }
-
 }

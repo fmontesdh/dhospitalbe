@@ -22,7 +22,7 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public Optional<Hospital> findById(Integer id) {
+    public Optional<Hospital> findById(Long id) {
         return hospitalRepository.findById(id);
     }
 
@@ -32,7 +32,7 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public Boolean update(Integer id, Hospital hospital) {
+    public Boolean update(Long id, Hospital hospital) {
         Optional<Hospital> hospitalOptional = hospitalRepository.findById(id);
         if (hospitalOptional.isPresent()) {
             hospitalOptional.get().setNombre(hospital.getNombre());
@@ -44,7 +44,7 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public Boolean delete(Integer id) {
+    public Boolean delete(Long id) {
         Optional<Hospital> hospitalOptional = hospitalRepository.findById(id);
         if (hospitalOptional.isPresent()) {
             hospitalRepository.delete(hospitalOptional.get());

@@ -10,12 +10,12 @@ public interface HospitalService {
 
     public abstract Page<Hospital> findAll(Pageable pageable);
 
-    public abstract Optional<Hospital> findById(Integer id);
+    public abstract Optional<Hospital> findById(Long id);
 
     public abstract Hospital save(Hospital hospital);
 
-    public abstract Boolean update(Integer id, Hospital hospital);
+    public abstract Boolean update(Long id, Hospital hospital);
 
-    public abstract Boolean delete(Integer id);
+    public abstract Boolean delete(Long id);
 
 }

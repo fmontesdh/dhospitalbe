@@ -20,7 +20,7 @@ public class Hospital extends Audit {
     @Id
     @Column(name = "hospital_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @NotNull
     private String nombre;
@@ -28,11 +28,11 @@ public class Hospital extends Audit {
     public Hospital() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -58,7 +58,7 @@ public class PacienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Paciente> uddate(@PathVariable Integer id, @Valid @RequestBody Paciente paciente) {
+    public ResponseEntity<Paciente> update(@PathVariable Long id, @Valid @RequestBody Paciente paciente) {
         Optional<Hospital> hospitalOptional = hospitalService.findById(paciente.getHospital().getId());
         if (!hospitalOptional.isPresent()) {
             return ResponseEntity.unprocessableEntity().build();
@@ -75,7 +75,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Paciente> destroy(@PathVariable Integer id) {
+    public ResponseEntity<Paciente> destroy(@PathVariable Long id) {
         if (pacienteService.delete(id)) {
             return ResponseEntity.noContent().build();
         }
@@ -83,7 +83,7 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> show(@PathVariable Integer id) {
+    public ResponseEntity<Paciente> show(@PathVariable Long id) {
         Optional<Paciente> pacienteOptional = pacienteService.findById(id);
         if (!pacienteOptional.isPresent()) {
             return ResponseEntity.unprocessableEntity().build();
