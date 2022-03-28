@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,6 +47,7 @@ public class Especialidad extends Audit {
     private Hospital hospital;
 
     @ManyToMany
+    @JsonBackReference
     @JoinTable(name = "doctor_especialidad",
             joinColumns = @JoinColumn(name = "especialidad_id", referencedColumnName = "especialidad_id"),
             inverseJoinColumns = @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id"))

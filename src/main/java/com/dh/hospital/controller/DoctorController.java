@@ -1,9 +1,7 @@
 package com.dh.hospital.controller;
 
 import java.util.Collection;
-import java.util.Optional;
 
-import com.dh.hospital.exception.ResourceNotFoundException;
 import com.dh.hospital.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -76,10 +76,6 @@ CREATE TABLE NOTA_VISITA(
 CREATE TABLE DOCTOR_ESPECIALIDAD(
 	DOCTOR_ID INT NOT NULL,
 	ESPECIALIDAD_ID INT NOT NULL,
-	CREATED_AT DATETIME NOT NULL DEFAULT GETDATE(),
-	UPDATED_AT DATETIME,
-	CREATED_BY INT NOT NULL,
-	UPDATED_BY INT,
 	PRIMARY KEY(DOCTOR_ID, ESPECIALIDAD_ID),
 	FOREIGN KEY(DOCTOR_ID) REFERENCES DOCTOR(DOCTOR_ID),
 	FOREIGN KEY(ESPECIALIDAD_ID) REFERENCES ESPECIALIDAD(ESPECIALIDAD_ID)
@@ -130,13 +126,13 @@ VALUES
 (5, 2, '01/20/2022', 1, 1, 'Sed posuere interdum elit, in eleifend ex hendrerit eu. In quam dui, volutpat ut laoreet sit amet, blandit non arcu. Aliquam sem lorem, pulvinar condimentum ultrices a, tempor nec justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In in quam efficitur, rutrum nisi at, vulputate lacus. Morbi accumsan sodales leo sit amet ultrices. Aliquam nec leo sit amet ex lacinia fringilla. Nulla felis elit, dapibus et ullamcorper eu, tincidunt id sapien. Etiam at enim.');
 SET IDENTITY_INSERT NOTA_VISITA OFF;
 
-INSERT INTO DOCTOR_ESPECIALIDAD(DOCTOR_ID, ESPECIALIDAD_ID, CREATED_BY)
+INSERT INTO DOCTOR_ESPECIALIDAD(DOCTOR_ID, ESPECIALIDAD_ID)
 VALUES
-(1, 1, 1),
-(2, 2, 1),
-(3, 3, 1),
-(4, 4, 1),
-(1, 2, 1);
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(1, 2);
 
 -- DROP TABLE DOCTOR_ESPECIALIDAD
 -- TRUNCATE TABLE DOCTOR_ESPECIALIDAD

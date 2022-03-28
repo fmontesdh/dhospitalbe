@@ -140,4 +140,5 @@ public class Doctor extends Audit {
     public void setNotasVisita(Set<NotaVisita> notasVisita) {
         this.notasVisita = notasVisita;
     }
+
 }
