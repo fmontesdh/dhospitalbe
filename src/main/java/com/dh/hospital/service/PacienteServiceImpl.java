@@ -29,7 +29,6 @@ public class PacienteServiceImpl implements PacienteService {
     @Override
     public Paciente save(Paciente paciente) {
         return pacienteRepository.save(paciente);
-
     }
 
     @Override

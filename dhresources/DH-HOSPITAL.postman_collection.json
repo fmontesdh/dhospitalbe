@@ -9,7 +9,7 @@
 			"name": "HOSPITAL",
 			"item": [
 				{
-					"name": "HOSPITAL-LISTAR",
+					"name": "Hospital list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -28,7 +28,7 @@
 					"response": []
 				},
 				{
-					"name": "HOSPITAL-GUARDAR",
+					"name": "Hospital save",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -56,7 +56,7 @@
 					"response": []
 				},
 				{
-					"name": "HOSPITAL-BUSCAR",
+					"name": "Hospital find",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -76,7 +76,7 @@
 					"response": []
 				},
 				{
-					"name": "HOSPITAL-ELIMINAR",
+					"name": "Hospital delete",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -96,7 +96,7 @@
 					"response": []
 				},
 				{
-					"name": "HOSPITAL-EDITAR",
+					"name": "Hospital update",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -130,7 +130,7 @@
 			"name": "PACIENTE",
 			"item": [
 				{
-					"name": "PACIENTE-LISTAR",
+					"name": "Paciente list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -149,7 +149,7 @@
 					"response": []
 				},
 				{
-					"name": "PACIENTE-GUARDAR",
+					"name": "Paciente save",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -177,7 +177,7 @@
 					"response": []
 				},
 				{
-					"name": "PACIENTE-EDITAR",
+					"name": "Paciente update",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -211,7 +211,7 @@
 			"name": "DOCTOR",
 			"item": [
 				{
-					"name": "DOCTOR-GUARDAR",
+					"name": "Doctor save",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -239,7 +239,7 @@
 					"response": []
 				},
 				{
-					"name": "DOCTOR-GUARDAR-ESPECIALIDAD",
+					"name": "Doctor save Especialidad",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -267,7 +267,7 @@
 					"response": []
 				},
 				{
-					"name": "DOCTOR-BUSCAR",
+					"name": "Doctor find",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -287,7 +287,7 @@
 					"response": []
 				},
 				{
-					"name": "DOCTOR-LISTAR",
+					"name": "Doctor list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -306,7 +306,7 @@
 					"response": []
 				},
 				{
-					"name": "DOCTOR-EDITAR",
+					"name": "Doctor update",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -340,7 +340,7 @@
 			"name": "ESPECIALIDAD",
 			"item": [
 				{
-					"name": "ESPECIALIDAD-GUARDAR",
+					"name": "Especialidad save",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -368,7 +368,7 @@
 					"response": []
 				},
 				{
-					"name": "ESPECIALIDAD-LISTAR",
+					"name": "Especialidad list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -381,6 +381,58 @@
 							"path": [
 								"api",
 								"especialidad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NOTA",
+			"item": [
+				{
+					"name": "NotaVisita list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/nota",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NotaVisita save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Nueva nota paciente 2 doctor 1\",\r\n    \"fechaNota\": \"2022-06-23\",\r\n    \"paciente\": {\r\n        \"id\": 2\r\n    },\r\n    \"doctor\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/nota",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"nota"
 							]
 						}
 					},
