@@ -2,7 +2,7 @@ package com.dh.hospital.controller;
 
 import java.util.Collection;
 
-import com.dh.hospital.dto.response.DoctorDto;
+import com.dh.hospital.dto.DoctorDto;
 import com.dh.hospital.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

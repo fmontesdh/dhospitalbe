@@ -1,7 +1,7 @@
 package com.dh.hospital.dto.converter;
 
-import com.dh.hospital.dto.response.DoctorDto;
-import com.dh.hospital.dto.response.EspecialidadDto;
+import com.dh.hospital.dto.DoctorDto;
+import com.dh.hospital.dto.EspecialidadDto;
 import com.dh.hospital.entity.Doctor;
 import com.dh.hospital.entity.Especialidad;
 import org.springframework.stereotype.Component;

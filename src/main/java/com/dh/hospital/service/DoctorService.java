@@ -2,7 +2,7 @@ package com.dh.hospital.service;
 
 import java.util.Collection;
 
-import com.dh.hospital.dto.response.DoctorDto;
+import com.dh.hospital.dto.DoctorDto;
 import com.dh.hospital.entity.Doctor;
 
 public interface DoctorService {

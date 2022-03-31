@@ -1,4 +1,4 @@
-package com.dh.hospital.dto.response;
+package com.dh.hospital.dto;
 
 import lombok.*;
 
