@@ -51,12 +51,10 @@ CREATE TABLE ESPECIALIDAD(
 	NOMBRE VARCHAR(255) NOT NULL,
 	DESCRIPCION VARCHAR(800) NOT NULL,
 	AVATAR_PATH VARCHAR(255),
-	HOSPITAL_ID INT NOT NULL,
 	CREATED_AT DATETIME NOT NULL DEFAULT GETDATE(),
 	UPDATED_AT DATETIME,
 	CREATED_BY INT NOT NULL,
-	UPDATED_BY INT,
-	FOREIGN KEY(HOSPITAL_ID) REFERENCES HOSPITAL(HOSPITAL_ID)
+	UPDATED_BY INT
 );
 
 CREATE TABLE NOTA_VISITA(
@@ -108,12 +106,12 @@ VALUES
 SET IDENTITY_INSERT DOCTOR OFF;
 
 SET IDENTITY_INSERT ESPECIALIDAD ON;
-INSERT INTO ESPECIALIDAD(ESPECIALIDAD_ID, NOMBRE, DESCRIPCION, HOSPITAL_ID, CREATED_BY)
+INSERT INTO ESPECIALIDAD(ESPECIALIDAD_ID, NOMBRE, DESCRIPCION, CREATED_BY)
 VALUES
-(1, 'PEDIATRIA', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum tortor eu fermentum porttitor. Maecenas tempor, neque vitae hendrerit fringilla, nisi mi euismod felis, ut interdum mi ante non urna. Pellentesque feugiat maximus ipsum id sagittis. Sed venenatis condimentum urna vitae mollis. Nulla vel turpis in leo interdum euismod. Morbi volutpat ac urna ut varius. Duis eros urna, varius quis justo in, semper vulputate velit. Suspendisse ornare interdum purus, sit amet vehicula leo tincidunt eget.', 1, 1),
-(2, 'CARDIOLOGIA', 'Sed posuere interdum elit, in eleifend ex hendrerit eu. In quam dui, volutpat ut laoreet sit amet, blandit non arcu. Aliquam sem lorem, pulvinar condimentum ultrices a, tempor nec justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In in quam efficitur, rutrum nisi at, vulputate lacus. Morbi accumsan sodales leo sit amet ultrices. Aliquam nec leo sit amet ex lacinia fringilla. Nulla felis elit, dapibus et ullamcorper eu, tincidunt id sapien. Etiam at enim vel quam scelerisque lobortis at quis lorem.', 2, 1),
-(3, 'CIRUGIA', 'Aenean at erat vitae urna consectetur ultrices sed eu velit. Proin tristique, ante vitae accumsan vulputate, magna elit consectetur nulla, vitae accumsan eros ligula a mi. Phasellus volutpat urna arcu, vitae fringilla nunc accumsan quis. Etiam vulputate ante ac gravida fermentum. Proin nec felis pretium, porttitor arcu sed, porta orci. Suspendisse eget pharetra nisl. Nulla facilisi. Duis ultrices erat ipsum, ac efficitur magna efficitur eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis ultricies neque purus, vel facilisis nulla blandit a. Nam dapibus nisl auctor nibh vulputate pretium.', 2, 1),
-(4, 'FISIATRIA', 'Aenean auctor in libero vitae rhoncus. Sed semper risus at scelerisque ultrices. Phasellus ac tortor eu libero eleifend luctus. Etiam posuere felis eu lectus fermentum, eget feugiat purus dignissim. Etiam id elementum est. Sed scelerisque, tellus nec imperdiet iaculis, erat magna volutpat leo, ut sollicitudin velit diam vitae diam. Proin arcu lectus, tristique a sollicitudin ac, ullamcorper et ipsum. Mauris viverra congue justo, eget congue tellus consectetur a. Phasellus posuere neque a sapien aliquet, non posuere odio rutrum. Aliquam erat volutpat. In eget lorem non mauris viverra dapibus vitae et metus. Suspendisse potenti. Nulla id iaculis sem. Proin eget mattis diam. Duis feugiat lorem in tellus porttitor accumsan in at dolor. Aenean eleifend erat a tincidunt maximus.', 1, 1);
+(1, 'PEDIATRIA', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum tortor eu fermentum porttitor. Maecenas tempor, neque vitae hendrerit fringilla, nisi mi euismod felis, ut interdum mi ante non urna. Pellentesque feugiat maximus ipsum id sagittis. Sed venenatis condimentum urna vitae mollis. Nulla vel turpis in leo interdum euismod. Morbi volutpat ac urna ut varius. Duis eros urna, varius quis justo in, semper vulputate velit. Suspendisse ornare interdum purus, sit amet vehicula leo tincidunt eget.', 1),
+(2, 'CARDIOLOGIA', 'Sed posuere interdum elit, in eleifend ex hendrerit eu. In quam dui, volutpat ut laoreet sit amet, blandit non arcu. Aliquam sem lorem, pulvinar condimentum ultrices a, tempor nec justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In in quam efficitur, rutrum nisi at, vulputate lacus. Morbi accumsan sodales leo sit amet ultrices. Aliquam nec leo sit amet ex lacinia fringilla. Nulla felis elit, dapibus et ullamcorper eu, tincidunt id sapien. Etiam at enim vel quam scelerisque lobortis at quis lorem.', 1),
+(3, 'CIRUGIA', 'Aenean at erat vitae urna consectetur ultrices sed eu velit. Proin tristique, ante vitae accumsan vulputate, magna elit consectetur nulla, vitae accumsan eros ligula a mi. Phasellus volutpat urna arcu, vitae fringilla nunc accumsan quis. Etiam vulputate ante ac gravida fermentum. Proin nec felis pretium, porttitor arcu sed, porta orci. Suspendisse eget pharetra nisl. Nulla facilisi. Duis ultrices erat ipsum, ac efficitur magna efficitur eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis ultricies neque purus, vel facilisis nulla blandit a. Nam dapibus nisl auctor nibh vulputate pretium.', 1),
+(4, 'FISIATRIA', 'Aenean auctor in libero vitae rhoncus. Sed semper risus at scelerisque ultrices. Phasellus ac tortor eu libero eleifend luctus. Etiam posuere felis eu lectus fermentum, eget feugiat purus dignissim. Etiam id elementum est. Sed scelerisque, tellus nec imperdiet iaculis, erat magna volutpat leo, ut sollicitudin velit diam vitae diam. Proin arcu lectus, tristique a sollicitudin ac, ullamcorper et ipsum. Mauris viverra congue justo, eget congue tellus consectetur a. Phasellus posuere neque a sapien aliquet, non posuere odio rutrum. Aliquam erat volutpat. In eget lorem non mauris viverra dapibus vitae et metus. Suspendisse potenti. Nulla id iaculis sem. Proin eget mattis diam. Duis feugiat lorem in tellus porttitor accumsan in at dolor. Aenean eleifend erat a tincidunt maximus.', 1);
 SET IDENTITY_INSERT ESPECIALIDAD OFF;
 
 SET IDENTITY_INSERT NOTA_VISITA ON;

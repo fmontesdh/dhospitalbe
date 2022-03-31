@@ -6,22 +6,17 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -40,11 +35,6 @@ public class Especialidad extends Audit {
     private String descripcion;
 
     private String avatarPath;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "hospital_id")
-    @JsonProperty(access = Access.WRITE_ONLY)
-    private Hospital hospital;
 
     @ManyToMany
     @JsonBackReference
@@ -94,14 +84,6 @@ public class Especialidad extends Audit {
 
     public void setDoctores(Set<Doctor> doctores) {
         this.doctores = doctores;
-    }
-
-    public Hospital getHospital() {
-        return hospital;
-    }
-
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
     }
 
     @Override
