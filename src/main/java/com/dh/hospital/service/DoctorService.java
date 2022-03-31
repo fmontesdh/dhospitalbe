@@ -2,6 +2,7 @@ package com.dh.hospital.service;
 
 import java.util.Collection;
 
+import com.dh.hospital.dto.response.DoctorDto;
 import com.dh.hospital.entity.Doctor;
 
 public interface DoctorService {
@@ -15,4 +16,6 @@ public interface DoctorService {
     public void delete(Long id);
 
     public abstract Doctor findById(Long id);
+
+    public abstract DoctorDto findDoctorAndHospitalById(Long id);
 }

@@ -2,6 +2,7 @@ package com.dh.hospital.controller;
 
 import java.util.Collection;
 
+import com.dh.hospital.dto.response.DoctorDto;
 import com.dh.hospital.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,15 @@ public class DoctorController {
         Doctor doctor = doctorService.findById(id);
         if (doctor != null) {
             return new ResponseEntity<>(doctor, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/especialidades/{id}")
+    public ResponseEntity<DoctorDto> findDoctorHospitalById(@PathVariable long id) {
+        DoctorDto doctorDto = doctorService.findDoctorAndHospitalById(id);
+        if (doctorDto != null) {
+            return new ResponseEntity<>(doctorDto, HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }

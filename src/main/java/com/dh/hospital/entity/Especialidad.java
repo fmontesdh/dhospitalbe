@@ -104,4 +104,13 @@ public class Especialidad extends Audit {
         this.hospital = hospital;
     }
 
+    @Override
+    public String toString() {
+        return "Especialidad{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", avatarPath='" + avatarPath + '\'' +
+                '}';
+    }
 }

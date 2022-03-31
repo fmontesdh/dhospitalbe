@@ -141,4 +141,16 @@ public class Doctor extends Audit {
         this.notasVisita = notasVisita;
     }
 
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", direccion='" + direccion + '\'' +
+                ", fotoPerfilPath='" + fotoPerfilPath + '\'' +
+                ", hospitalId=" + hospital.getId() +
+                '}';
+    }
 }
