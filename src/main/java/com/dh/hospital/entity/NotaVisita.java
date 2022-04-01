@@ -79,4 +79,13 @@ public class NotaVisita extends Audit {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
+
+    @Override
+    public String toString() {
+        return "NotaVisita{" +
+                "id=" + id +
+                ", descripcion='" + descripcion + '\'' +
+                ", fechaNota=" + fechaNota +
+                '}';
+    }
 }

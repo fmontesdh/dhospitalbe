@@ -1,11 +1,13 @@
 package com.dh.hospital.controller;
 
+import com.dh.hospital.dto.DoctorDto;
 import com.dh.hospital.dto.HospitalDto;
 import com.dh.hospital.dto.PacienteDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -84,5 +86,15 @@ public class PacienteController {
         }
         return ResponseEntity.ok(pacienteOptional.get());
     }
+
+    @GetMapping("/doctores/notas/{id}")
+    public ResponseEntity<PacienteDto> findDoctorNotasByIdPaciente(@PathVariable Long id) {
+        PacienteDto pacienteDto = pacienteService.findDoctorNotasByIdPaciente(id);
+        if (pacienteDto != null) {
+            return new ResponseEntity<>(pacienteDto, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
 
 }

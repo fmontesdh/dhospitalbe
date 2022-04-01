@@ -1,10 +1,15 @@
 package com.dh.hospital.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import com.dh.hospital.dto.DoctorDto;
+import com.dh.hospital.dto.NotaVisitaDto;
 import com.dh.hospital.dto.PacienteDto;
 import com.dh.hospital.dto.converter.PacienteConverter;
 import com.dh.hospital.entity.Hospital;
+import com.dh.hospital.entity.NotaVisita;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -66,4 +71,15 @@ public class PacienteServiceImpl implements PacienteService {
         }
         return false;
     }
+
+    @Override
+    public PacienteDto findDoctorNotasByIdPaciente(Long id) {
+        Paciente paciente = pacienteRepository.findDoctorNotasByIdPaciente(id);
+        PacienteDto pacienteDto = new PacienteDto(paciente.getId(), paciente.getNombre(), paciente.getApellido(),paciente.getFechaNacimiento(),paciente.getDireccion());
+        for (NotaVisita nv : paciente.getNotasVisita()){
+            pacienteDto.getNotasVisita().add(new NotaVisitaDto(nv.getId(), nv.getDescripcion(), nv.getFechaNota(), new DoctorDto(nv.getDoctor().getId(), nv.getDoctor().getNombre(), nv.getDoctor().getApellido())));
+        }
+        return pacienteDto;
+    }
+
 }

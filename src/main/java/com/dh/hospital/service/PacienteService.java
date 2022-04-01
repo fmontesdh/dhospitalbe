@@ -1,5 +1,6 @@
 package com.dh.hospital.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.dh.hospital.dto.PacienteDto;
@@ -10,14 +11,16 @@ import com.dh.hospital.entity.Paciente;
 
 public interface PacienteService {
 
-    public abstract Page<Paciente> findAll(Pageable pageable);
+    Page<Paciente> findAll(Pageable pageable);
 
-    public abstract Optional<PacienteDto> findById(Long id);
+    Optional<PacienteDto> findById(Long id);
 
-    public abstract PacienteDto save(PacienteDto Paciente);
+    PacienteDto save(PacienteDto pacienteDto);
 
-    public abstract PacienteDto update(Long id, PacienteDto Paciente);
+    PacienteDto update(Long id, PacienteDto pacienteDto);
 
-    public abstract Boolean delete(Long id);
+    Boolean delete(Long id);
+
+    PacienteDto findDoctorNotasByIdPaciente(Long id);
 
 }

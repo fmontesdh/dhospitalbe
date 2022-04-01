@@ -21,7 +21,13 @@ public class DoctorDto {
     public DoctorDto(){
     }
 
-   public DoctorDto(Long id, String nombre, String apellido, Date fechaNacimiento, String direccion) {
+    public DoctorDto(Long id, String nombre, String apellido) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    public DoctorDto(Long id, String nombre, String apellido, Date fechaNacimiento, String direccion) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;

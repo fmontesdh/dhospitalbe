@@ -24,6 +24,13 @@ public class NotaVisitaDto {
         this.fechaNota = fechaNota;
     }
 
+    public NotaVisitaDto(Long id, String descripcion, Date fechaNota, DoctorDto doctor) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.fechaNota = fechaNota;
+        this.doctor = doctor;
+    }
+
     public NotaVisitaDto(Long id, String descripcion, Date fechaNota, PacienteDto paciente) {
         this.id = id;
         this.descripcion = descripcion;
