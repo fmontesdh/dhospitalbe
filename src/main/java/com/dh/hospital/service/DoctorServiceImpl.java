@@ -27,22 +27,24 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor save(Doctor doctor) {
-        return doctorRepository.save(doctor);
+    public DoctorDto save(DoctorDto doctorDto) {
+        Doctor doctor = doctorConverter.dtoToEntity(doctorDto);
+        doctor.setCreatedBy(1);
+        return doctorConverter.entityToDto(doctorRepository.save(doctor));
     }
 
     @Override
-    public Doctor update(Long id, Doctor doctor) {
+    public DoctorDto update(Long id, DoctorDto doctorDto) {
         Optional<Doctor> doctorOptional = doctorRepository.findById(id);
         if (doctorOptional.isPresent()) {
             Doctor doctorEdit = doctorOptional.get();
-            doctorEdit.setNombre(doctor.getNombre());
-            doctorEdit.setApellido(doctor.getApellido());
-            doctorEdit.setFechaNacimiento(doctor.getFechaNacimiento());
-            doctorEdit.setDireccion(doctor.getDireccion());
-            doctorEdit.setHospital(doctor.getHospital());
-            doctorEdit.setUpdatedBy(doctor.getUpdatedBy());
-            return doctorRepository.save(doctorEdit);
+            doctorEdit.setNombre(doctorDto.getNombre());
+            doctorEdit.setApellido(doctorDto.getApellido());
+            doctorEdit.setFechaNacimiento(doctorDto.getFechaNacimiento());
+            doctorEdit.setDireccion(doctorDto.getDireccion());
+            doctorEdit.getHospital().setId(doctorDto.getHospital().getId());
+            doctorEdit.setUpdatedBy(1);
+            return doctorConverter.entityToDto(doctorRepository.save(doctorEdit));
         }
         return null;
     }
@@ -53,8 +55,10 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor findById(Long id) {
-        return doctorRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Not found id " + id));
+    public DoctorDto findById(Long id) {
+        Optional<Doctor> doctorOptional = doctorRepository.findById(id);
+        Optional<DoctorDto> doctorDtoOptional = Optional.of(doctorConverter.entityToDto(doctorOptional.get()));
+        return doctorDtoOptional.orElseThrow(()->new ResourceNotFoundException("Not found id " + id));
     }
 
     @Override

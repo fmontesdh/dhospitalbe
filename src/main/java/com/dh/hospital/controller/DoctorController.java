@@ -26,8 +26,8 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Doctor> show(@PathVariable long id) {
-        Doctor doctor = doctorService.findById(id);
+    public ResponseEntity<DoctorDto> show(@PathVariable long id) {
+        DoctorDto doctor = doctorService.findById(id);
         if (doctor != null) {
             return new ResponseEntity<>(doctor, HttpStatus.OK);
         }
@@ -44,15 +44,13 @@ public class DoctorController {
     }
 
     @PostMapping
-    public ResponseEntity<?> store(@RequestBody Doctor doctor) {
-        doctor.setCreatedBy(1);
+    public ResponseEntity<?> store(@RequestBody DoctorDto doctor) {
         return new ResponseEntity<>(doctorService.save(doctor), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Doctor> update(@PathVariable Long id, @Valid @RequestBody Doctor doctor) {
-        doctor.setUpdatedBy(1);
-        Doctor doctorEdit = doctorService.update(id, doctor);
+    public ResponseEntity<DoctorDto> update(@PathVariable Long id, @Valid @RequestBody DoctorDto doctor) {
+        DoctorDto doctorEdit = doctorService.update(id, doctor);
         if(doctorEdit != null ){
             return new ResponseEntity<>(doctor, HttpStatus.OK);
         }
@@ -64,5 +62,4 @@ public class DoctorController {
         doctorService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }

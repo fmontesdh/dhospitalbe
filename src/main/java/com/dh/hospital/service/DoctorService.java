@@ -9,13 +9,13 @@ public interface DoctorService {
 
     public abstract Collection<Doctor> findAll();
 
-    public abstract Doctor save(Doctor doctor);
+    public abstract DoctorDto save(DoctorDto doctor);
 
-    public abstract Doctor update(Long id, Doctor doctor);
+    public abstract DoctorDto update(Long id, DoctorDto doctor);
 
     public void delete(Long id);
 
-    public abstract Doctor findById(Long id);
+    public abstract DoctorDto findById(Long id);
 
     public abstract DoctorDto findDoctorAndHospitalById(Long id);
 }

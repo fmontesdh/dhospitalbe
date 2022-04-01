@@ -15,7 +15,7 @@ public class DoctorDto {
     private String apellido;
     private Date fechaNacimiento;
     private String direccion;
-    private Long hospitalId;
+    private HospitalDto hospital = new HospitalDto();
     private List<EspecialidadDto> especialidades = new ArrayList<>();
 
     public DoctorDto(){
@@ -29,12 +29,16 @@ public class DoctorDto {
         this.direccion = direccion;
     }
 
-    public DoctorDto(Long id, String nombre, String apellido, Date fechaNacimiento, String direccion, Long hospitalId) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.direccion = direccion;
-        this.hospitalId = hospitalId;
+
+    @Override
+    public String toString() {
+        return "DoctorDto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", direccion='" + direccion + '\'' +
+                ", hospitalId=" + hospital.getId() +
+                '}';
     }
 }

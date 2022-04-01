@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.dh.hospital.dto.HospitalDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,16 +29,15 @@ public class HospitalController {
     }
 
     @PostMapping
-    public ResponseEntity<Hospital> store(@Valid @RequestBody Hospital hospital) {
-        hospital.setCreatedBy(1);
-        Hospital hospitalGuardado = hospitalService.save(hospital);
+    public ResponseEntity<HospitalDto> store(@Valid @RequestBody HospitalDto hospital) {
+        HospitalDto hospitalGuardado = hospitalService.save(hospital);
         URI ubicacion = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(hospitalGuardado.getId()).toUri();
         return ResponseEntity.created(ubicacion).body(hospitalGuardado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Hospital> update(@PathVariable Long id, @Valid @RequestBody Hospital hospital) {
+    public ResponseEntity<HospitalDto> update(@PathVariable Long id, @Valid @RequestBody HospitalDto hospital) {
         if (hospitalService.update(id, hospital)) {
             return ResponseEntity.noContent().build();
         }
@@ -45,7 +45,7 @@ public class HospitalController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Hospital> destroy(@PathVariable Long id) {
+    public ResponseEntity<HospitalDto> destroy(@PathVariable Long id) {
         if (hospitalService.delete(id)) {
             return ResponseEntity.noContent().build();
         }
@@ -53,8 +53,8 @@ public class HospitalController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Hospital> show(@PathVariable Long id) {
-        Optional<Hospital> hospitalOptional = hospitalService.findById(id);
+    public ResponseEntity<HospitalDto> show(@PathVariable Long id) {
+        Optional<HospitalDto> hospitalOptional = hospitalService.findById(id);
         if (!hospitalOptional.isPresent()) {
             return ResponseEntity.unprocessableEntity().build();
         }

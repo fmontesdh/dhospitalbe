@@ -1,5 +1,8 @@
 package com.dh.hospital.controller;
 
+import com.dh.hospital.dto.HospitalDto;
+import com.dh.hospital.dto.PacienteDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
@@ -41,15 +44,14 @@ public class PacienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Paciente> store(@Valid @RequestBody Paciente paciente) {
-        Optional<Hospital> hospitalOptional = hospitalService.findById(paciente.getHospital().getId());
+    public ResponseEntity<PacienteDto> store(@Valid @RequestBody PacienteDto pacienteDto) {
+        Optional<HospitalDto> hospitalOptional = hospitalService.findById(pacienteDto.getHospital().getId());
         if (!hospitalOptional.isPresent()) {
             return ResponseEntity.unprocessableEntity().build();
         }
 
-        paciente.setHospital(hospitalOptional.get());
-        paciente.setCreatedBy(1);
-        Paciente pacienteGuardado = pacienteService.save(paciente);
+        pacienteDto.setHospital(hospitalOptional.get());
+        PacienteDto pacienteGuardado = pacienteService.save(pacienteDto);
 
         URI ubicacion = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(pacienteGuardado.getId()).toUri();
@@ -58,21 +60,12 @@ public class PacienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Paciente> update(@PathVariable Long id, @Valid @RequestBody Paciente paciente) {
-        Optional<Hospital> hospitalOptional = hospitalService.findById(paciente.getHospital().getId());
-        if (!hospitalOptional.isPresent()) {
-            return ResponseEntity.unprocessableEntity().build();
+    public ResponseEntity<PacienteDto> update(@PathVariable Long id, @Valid @RequestBody PacienteDto pacienteDto) {
+        PacienteDto pacienteEdit = pacienteService.update(id, pacienteDto);
+        if(pacienteEdit != null ){
+            return new ResponseEntity<>(pacienteEdit, HttpStatus.OK);
         }
-
-        paciente.setHospital(hospitalOptional.get());
-        paciente.setUpdatedBy(1);
-
-        if (pacienteService.update(id, paciente)) {
-            return ResponseEntity.noContent().build();
-        }
-
-        return ResponseEntity.unprocessableEntity().build();
-    }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Paciente> destroy(@PathVariable Long id) {
@@ -83,8 +76,8 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> show(@PathVariable Long id) {
-        Optional<Paciente> pacienteOptional = pacienteService.findById(id);
+    public ResponseEntity<PacienteDto> show(@PathVariable Long id) {
+        Optional<PacienteDto> pacienteOptional = pacienteService.findById(id);
         if (!pacienteOptional.isPresent()) {
             return ResponseEntity.unprocessableEntity().build();
         }

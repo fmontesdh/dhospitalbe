@@ -2,6 +2,8 @@ package com.dh.hospital.service;
 
 import java.util.Optional;
 
+import com.dh.hospital.dto.HospitalDto;
+import com.dh.hospital.dto.converter.HospitalConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,26 +18,33 @@ public class HospitalServiceImpl implements HospitalService {
     @Autowired
     private HospitalRepository hospitalRepository;
 
+    @Autowired
+    private HospitalConverter hospitalConverter;
+
     @Override
     public Page<Hospital> findAll(Pageable pageable) {
         return hospitalRepository.findAll(pageable);
     }
 
     @Override
-    public Optional<Hospital> findById(Long id) {
-        return hospitalRepository.findById(id);
+    public Optional<HospitalDto> findById(Long id) {
+        HospitalDto hospitalDto = hospitalConverter.entityToDto(hospitalRepository.findById(id).get());
+        Optional<HospitalDto> optDto = Optional.of(hospitalDto);
+        return optDto;
     }
 
     @Override
-    public Hospital save(Hospital hospital) {
-        return hospitalRepository.save(hospital);
+    public HospitalDto save(HospitalDto hospitalDto) {
+        Hospital hospital = hospitalConverter.dtoToEntity(hospitalDto);
+        hospital.setCreatedBy(1);
+        return hospitalConverter.entityToDto(hospitalRepository.save(hospital));
     }
 
     @Override
-    public Boolean update(Long id, Hospital hospital) {
+    public Boolean update(Long id, HospitalDto hospitalDto) {
         Optional<Hospital> hospitalOptional = hospitalRepository.findById(id);
         if (hospitalOptional.isPresent()) {
-            hospitalOptional.get().setNombre(hospital.getNombre());
+            hospitalOptional.get().setNombre(hospitalDto.getNombre());
             hospitalOptional.get().setUpdatedBy(1);
             hospitalRepository.save(hospitalOptional.get());
             return true;
@@ -52,5 +61,4 @@ public class HospitalServiceImpl implements HospitalService {
         }
         return false;
     }
-
 }

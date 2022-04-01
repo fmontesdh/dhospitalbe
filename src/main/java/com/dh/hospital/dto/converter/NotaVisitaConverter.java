@@ -1,7 +1,6 @@
 package com.dh.hospital.dto.converter;
 
 import com.dh.hospital.dto.NotaVisitaDto;
-import com.dh.hospital.dto.PacienteDto;
 import com.dh.hospital.entity.NotaVisita;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +20,8 @@ public class NotaVisitaConverter {
         notaVisitaDto.setId(notaVisita.getId());
         notaVisitaDto.setDescripcion(notaVisita.getDescripcion());
         notaVisitaDto.setFechaNota(notaVisita.getFechaNota());
-        notaVisitaDto.setPacienteDto(pacienteConverter.entityToDto(notaVisita.getPaciente()));
-        notaVisitaDto.setDoctorDto(doctorConverter.entityToDto(notaVisita.getDoctor()));
+        notaVisitaDto.setPaciente(pacienteConverter.entityToDto(notaVisita.getPaciente()));
+        notaVisitaDto.setDoctor(doctorConverter.entityToDto(notaVisita.getDoctor()));
         return notaVisitaDto;
     }
 
@@ -31,8 +30,8 @@ public class NotaVisitaConverter {
         notaVisita.setId(notaVisitaDto.getId());
         notaVisita.setDescripcion(notaVisitaDto.getDescripcion());
         notaVisita.setFechaNota(notaVisitaDto.getFechaNota());
-        notaVisita.setPaciente(pacienteConverter.dtoToEntity(notaVisitaDto.getPacienteDto()));
-        notaVisita.setDoctor(doctorConverter.dtoToEntity(notaVisitaDto.getDoctorDto()));
+        notaVisita.setPaciente(pacienteConverter.dtoToEntity(notaVisitaDto.getPaciente()));
+        notaVisita.setDoctor(doctorConverter.dtoToEntity(notaVisitaDto.getDoctor()));
         return notaVisita;
     }
 }

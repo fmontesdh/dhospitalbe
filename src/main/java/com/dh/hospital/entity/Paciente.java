@@ -130,4 +130,17 @@ public class Paciente extends Audit {
 //			notaVisita.setPaciente(this);
 //		}
     }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", direccion='" + direccion + '\'' +
+                ", fotoPerfilPath='" + fotoPerfilPath + '\'' +
+                ", hospital.id=" + hospital.getId() +
+                '}';
+    }
 }

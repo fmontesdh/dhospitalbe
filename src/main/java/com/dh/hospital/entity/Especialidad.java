@@ -46,6 +46,12 @@ public class Especialidad extends Audit {
     public Especialidad() {
     }
 
+    public Especialidad(Long id, @NotNull String nombre, @NotNull String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
     public Long getId() {
         return id;
     }

@@ -12,8 +12,8 @@ public class NotaVisitaDto {
     private Long id;
     private String descripcion;
     private Date fechaNota;
-    private PacienteDto pacienteDto;
-    private DoctorDto doctorDto;
+    private PacienteDto paciente;
+    private DoctorDto doctor;
 
     public NotaVisitaDto(){
     }
@@ -24,18 +24,18 @@ public class NotaVisitaDto {
         this.fechaNota = fechaNota;
     }
 
-    public NotaVisitaDto(Long id, String descripcion, Date fechaNota, PacienteDto pacienteDto) {
+    public NotaVisitaDto(Long id, String descripcion, Date fechaNota, PacienteDto paciente) {
         this.id = id;
         this.descripcion = descripcion;
         this.fechaNota = fechaNota;
-        this.pacienteDto = pacienteDto;
+        this.paciente = paciente;
     }
 
-    public NotaVisitaDto(Long id, String descripcion, Date fechaNota, PacienteDto pacienteDto, DoctorDto doctorDto) {
+    public NotaVisitaDto(Long id, String descripcion, Date fechaNota, PacienteDto paciente, DoctorDto doctor) {
         this.id = id;
         this.descripcion = descripcion;
         this.fechaNota = fechaNota;
-        this.pacienteDto = pacienteDto;
-        this.doctorDto = doctorDto;
+        this.paciente = paciente;
+        this.doctor = doctor;
     }
 }

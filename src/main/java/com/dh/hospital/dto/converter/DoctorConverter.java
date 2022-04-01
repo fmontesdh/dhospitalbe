@@ -4,10 +4,14 @@ import com.dh.hospital.dto.DoctorDto;
 import com.dh.hospital.dto.EspecialidadDto;
 import com.dh.hospital.entity.Doctor;
 import com.dh.hospital.entity.Especialidad;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DoctorConverter {
+
+    @Autowired
+    private HospitalConverter hospitalConverter;
 
     public DoctorDto entityToDto(Doctor doctor){
         DoctorDto doctorDto = new DoctorDto();
@@ -16,7 +20,7 @@ public class DoctorConverter {
         doctorDto.setApellido(doctor.getApellido());
         doctorDto.setFechaNacimiento(doctor.getFechaNacimiento());
         doctorDto.setDireccion(doctor.getDireccion());
-        doctorDto.setHospitalId(doctor.getHospital().getId());
+        doctorDto.setHospital(hospitalConverter.entityToDto(doctor.getHospital()));
         for(Especialidad esp : doctor.getEspecialidades()){
             doctorDto.getEspecialidades().add(new EspecialidadDto(esp.getId(), esp.getNombre(), esp.getDescripcion()));
         }
@@ -30,7 +34,10 @@ public class DoctorConverter {
         doctor.setApellido(doctorDto.getApellido());
         doctor.setFechaNacimiento(doctorDto.getFechaNacimiento());
         doctor.setDireccion(doctorDto.getDireccion());
-        doctor.getHospital().setId(doctorDto.getHospitalId());
+        doctor.setHospital(hospitalConverter.dtoToEntity(doctorDto.getHospital()));
+        for(EspecialidadDto esp : doctorDto.getEspecialidades()){
+            doctor.getEspecialidades().add(new Especialidad(esp.getId(), esp.getNombre(), esp.getDescripcion()));
+        }
         return doctor;
     }
 }

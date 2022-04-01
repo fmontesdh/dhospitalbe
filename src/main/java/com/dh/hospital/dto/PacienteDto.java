@@ -16,7 +16,7 @@ public class PacienteDto {
     private String apellido;
     private Date fechaNacimiento;
     private String direccion;
-    private HospitalDto hospital;
+    private HospitalDto hospital = new HospitalDto();
     private List<NotaVisitaDto> notasVisita = new ArrayList<>();
 
     public PacienteDto(){

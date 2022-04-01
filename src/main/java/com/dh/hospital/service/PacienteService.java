@@ -2,6 +2,7 @@ package com.dh.hospital.service;
 
 import java.util.Optional;
 
+import com.dh.hospital.dto.PacienteDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -11,11 +12,11 @@ public interface PacienteService {
 
     public abstract Page<Paciente> findAll(Pageable pageable);
 
-    public abstract Optional<Paciente> findById(Long id);
+    public abstract Optional<PacienteDto> findById(Long id);
 
-    public abstract Paciente save(Paciente Paciente);
+    public abstract PacienteDto save(PacienteDto Paciente);
 
-    public abstract Boolean update(Long id, Paciente Paciente);
+    public abstract PacienteDto update(Long id, PacienteDto Paciente);
 
     public abstract Boolean delete(Long id);
 
