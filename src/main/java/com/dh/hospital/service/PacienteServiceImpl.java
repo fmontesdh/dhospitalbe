@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.dh.hospital.dto.PacienteDto;
 import com.dh.hospital.dto.converter.PacienteConverter;
+import com.dh.hospital.entity.Hospital;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -49,7 +50,7 @@ public class PacienteServiceImpl implements PacienteService {
             pacienteEdit.setApellido(pacienteDto.getApellido());
             pacienteEdit.setFechaNacimiento(pacienteDto.getFechaNacimiento());
             pacienteEdit.setDireccion(pacienteDto.getDireccion());
-            pacienteEdit.getHospital().setId(pacienteDto.getHospital().getId());
+            pacienteEdit.setHospital(new Hospital(pacienteDto.getHospital().getId()));
             pacienteEdit.setUpdatedBy(1);
             return pacienteConverter.entityToDto(pacienteRepository.save(pacienteEdit));
         }

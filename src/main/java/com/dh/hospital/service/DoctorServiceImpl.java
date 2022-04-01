@@ -3,8 +3,11 @@ package com.dh.hospital.service;
 import java.util.Collection;
 import java.util.Optional;
 
+import com.dh.hospital.dto.EspecialidadDto;
 import com.dh.hospital.dto.converter.DoctorConverter;
 import com.dh.hospital.dto.DoctorDto;
+import com.dh.hospital.entity.Especialidad;
+import com.dh.hospital.entity.Hospital;
 import com.dh.hospital.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +45,11 @@ public class DoctorServiceImpl implements DoctorService {
             doctorEdit.setApellido(doctorDto.getApellido());
             doctorEdit.setFechaNacimiento(doctorDto.getFechaNacimiento());
             doctorEdit.setDireccion(doctorDto.getDireccion());
-            doctorEdit.getHospital().setId(doctorDto.getHospital().getId());
+            doctorEdit.setHospital(new Hospital(doctorDto.getHospital().getId()));
+            doctorEdit.getEspecialidades().clear();
+            for(EspecialidadDto espDto: doctorDto.getEspecialidades()){
+                doctorEdit.getEspecialidades().add(new Especialidad(espDto.getId()));
+            }
             doctorEdit.setUpdatedBy(1);
             return doctorConverter.entityToDto(doctorRepository.save(doctorEdit));
         }

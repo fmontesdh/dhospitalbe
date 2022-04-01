@@ -28,6 +28,10 @@ public class Hospital extends Audit {
     public Hospital() {
     }
 
+    public Hospital(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
