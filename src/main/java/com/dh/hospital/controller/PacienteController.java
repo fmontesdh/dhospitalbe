@@ -65,7 +65,8 @@ public class PacienteController {
         if(pacienteEdit != null ){
             return new ResponseEntity<>(pacienteEdit, HttpStatus.OK);
         }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);    }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Paciente> destroy(@PathVariable Long id) {
